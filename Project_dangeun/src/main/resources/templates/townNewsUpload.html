@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="csskwon/report.css">
+<script type="text/javascript"></script>
+</head>
+<body>
+<form action="/townnewsUpload.do" method="post" enctype="multipart/form-data">
+	<table id="reportTbl">
+		<tr hidden>
+			<td>
+				<input name="townNewsMemberId" th:value="${session.loginMember.id}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				제목
+				<input name="townNewsTitle" placeholder="제목을 입력하세요.">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				내용<p>
+				<textarea name="townNewsText" placeholder="내용을 입력하세요." maxlength="500">
+				</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				사진 첨부 : 
+				<input name="photoo" type="file">
+					<button>등록</button>				
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

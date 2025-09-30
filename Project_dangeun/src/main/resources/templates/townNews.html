@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<link rel="stylesheet" type="text/css" href="css/townNews.css">
+<link rel="stylesheet" type="text/css" href="css/modal.css">
+</head>
+<body>	
+
+
+
+	
+<table id="townNewsPage" th:each="t : ${tn}">
+    <!-- 게시글 제목 -->
+    <tr>
+        <td colspan="2">
+			<span class="newsnum" th:text="${t.townNewsNum}" id="num-cell"></span>
+            <span class="title-cell" id="title-cell" th:text="${t.townNewsTitle}"></span>
+        </td>
+        <td colspan="2">
+            <!-- 게시글 작성일 -->
+            <span class="timestamp-cell" th:text="${t.townNewsTimestamp}"></span>
+            <div th:if="${session.loginMember.id == t.townNewsMemberId.id}">
+            <form action="/townnewsUpdate.go" method="post">
+	            <input type="hidden" name="townNewsNum" th:value="${t.townNewsNum}" />
+				<button class="edit-button" onclick="openEditModalTest(true);" id="editButton">
+				    <img alt="edit" src="img/edit.png">
+				</button>	
+            </form>
+            <form th:action="@{/townnews/delete}" method="post" onsubmit="return confirmDelete();">
+                <input type="hidden" name="townNewsNum" th:value="${t.townNewsNum}" />
+                <button type="submit" class="delete-button" th:action="@{/townnews/delete}">
+                	<img alt="edit" src="img/delete.png">
+                </button>
+            </form>
+            </div>
+        </td>
+    </tr>
+    <!-- 게시글 내용과 이미지 -->
+    <tr>
+		<td class="image-cell">
+		    <!-- 디폴트 사진값 -->
+		    <img alt="" th:if="${#strings.isEmpty(t.townNewsPhoto)}"
+		         src="img/rabbit.png" class="resize-image" id="photo-cell">
+		    <!-- 사용자 사진값 -->
+		    <img alt="" th:if="${not #strings.isEmpty(t.townNewsPhoto)}"
+		         th:src="${'/photo/' + t.townNewsPhoto}" class="resize-image" id="photo-cell">
+		</td>
+        <td colspan="3" class="text-cell">
+            <p><span id="text-cell" th:text="${t.townNewsText}"></span></p>
+        </td>
+    </tr>	
+    <!-- 댓글 내용 표시 -->	
+    <tr th:each="tnr : ${townNewsReply}">
+        <td colspan="4" th:if="${tnr.townnews.townNewsNum == t.townNewsNum}">
+			<span th:text="${tnr.townNewsReplyNum}" style="display: none;"></span>
+            <span class="reply-writer-cell" th:text="${tnr.townNewsReplyWriterId}"></span>
+            <span class="reply-text-cell" th:text="${tnr.townNewsReplyText}"></span>
+            <span class="reply-date-cell" th:text="${tnr.townNewsReplyDate}"></span>
+        </td>
+    </tr>
+    <!-- 댓글 작성 입력란 -->
+    <tr>
+        <td colspan="4">
+            <form th:action="@{/townnews/reply}" method="post">
+                <input type="hidden" name="townnews.townNewsNum" th:value="${t.townNewsNum}" />	
+                <input type="hidden" name="townNewsReplyWriterId" th:value="${session.loginMember.id}" />
+                <input class="resize-input" name="townNewsReplyText" placeholder="댓글을 입력하세요">
+                <button type="submit" class="reply-button">작성</button><p>
+            </form>
+        </td>
+    </tr>
+</table>
+
+		<form action="/townnewsUpload.go">
+			<button>작성</button>
+		</form>
+
+	
+</body>
+
+
+
+<script type="text/javascript">
+    // HTML 요소를 ID를 사용하여 참조합니다.
+    const modalOpenButton = document.getElementById('modalOpenButton'); // 모달을 열기 위한 버튼
+    const modalCloseButton = document.getElementById('modalCloseButton'); // 모달을 닫기 위한 버튼
+    const modal = document.getElementById('modalContainer'); // 모달 그 자체
+    const editButton = document.getElementById('editButton');
+    
+    // 모달 열기 버튼에 클릭 이벤트 리스너를 추가합니다.
+    modalOpenButton.addEventListener('click', () => {
+        // 클릭 시 'hidden' 클래스를 제거하여 모달을 표시합니다.
+        modal.classList.remove('hidden');
+    });
+
+    // 편집 버튼에 클릭 이벤트 리스너를 추가합니다.
+    editButton.addEventListener('click', () => {
+        // 클릭 시 'hidden' 클래스를 제거하여 모달을 표시합니다.
+        modal.classList.remove('hidden');
+    });
+
+    // 모달 닫기 버튼에 클릭 이벤트 리스너를 추가합니다.
+    modalCloseButton.addEventListener('click', () => {
+        // 클릭 시 'hidden' 클래스를 추가하여 모달을 숨깁니다.
+        modal.classList.add('hidden');
+        return;
+    });
+</script>
+
+
+
+<script type="text/javascript">
+	let isEdit = false;
+	let currentNewsNum = null;
+	
+	function openEditModal(title, text, newsNum) {
+	    const modalTitleField = document.getElementById("modalTitle");
+	    const modalTextField = document.getElementsByName("townNewsText");
+	
+	    modalTitleField.value = title;
+	    modalTextField.value = text;
+	
+	    currentNewsNum = newsNum;
+	    isEdit = true;
+	
+	    modal.classList.remove('hidden');
+	}
+
+function openEditModalTest(flag, newsNum) {
+	if(flag) {	
+		const title = document.getElementById('title-cell').textContent;
+		const text = document.getElementById('text-cell').textContent;
+		const num = document.getElementById('num-cell').textContent;
+		const photo = document.getElementById('photo-cell').getAttribute('src');		
+		console.log(photo);
+		
+	    const modalNumField = document.getElementById("modalNum");
+	    const modalTitleField = document.getElementById("modalTitle");
+	    const modalPhotoField = document.getElementById("imageUpload");
+	    const modalTextField = document.getElementsByName("townNewsText")[0];
+	    
+	    modalTitleField.value = title;
+	    modalTextField.value = text;
+	    modalNumField.value = num;
+	    modalPhotoField.value = photo;
+	} else {
+
+	}
+}
+
+	// 게시판 유효성 검사
+	function titleTextValue() {
+    const title = document.getElementById("modalTitle").value;
+    const text = document.getElementsByName("townNewsText")[0].value;
+
+    if (title.trim() === "") {
+        alert("제목을 입력해주세요.");
+        return false;
+    }
+
+    if (text.trim() === "") {
+        alert("내용을 입력해주세요.");
+        return false;
+    }
+	
+     // 수정 작업인 경우, newsNum을 양식에 추가합니다.
+    if (isEdit) {
+        const editNewsNumInput = document.createElement("input");
+        editNewsNumInput.type = "hidden";
+        editNewsNumInput.name = "townNewsNum";
+        editNewsNumInput.value = currentNewsNum;
+        document.querySelector("form").appendChild(editNewsNumInput);
+    }
+    
+
+}
+</script>
+
+
+
+<script>
+	function confirmDelete() {
+		console.log("flag");
+	    return confirm("삭제하시겠습니까?");
+	}
+</script>
+
+</html>

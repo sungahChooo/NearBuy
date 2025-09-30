@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <table id="reportTbl" th:each="rd:${reportDetail}">
+      <tr hidden>
+		<td ><input name="id" th:value="${rd.id}"></td>
+	</tr>
+      <tr hidden>
+         <td>
+            <input name="writerId" th:value="${rd.writerId.id}">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            신고 대상 : 
+            <input name=reportedId th:value="${rd.reportedId.id}">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            카테고리 :
+            <input name="category" th:value="${rd.category}">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            제목 :
+            <input name="title" th:value="${rd.title}">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            내용<p>
+            <textarea name="text" th:utext="${rd.text}" >
+            </textarea>
+         </td>
+      </tr>
+      <tr>
+         <td>
+            첨부사진 : 
+            <img th:src="${'/photoyun/'+rd.photo}">
+         </td>
+      </tr>
+   </table>
+</body>
+</html>

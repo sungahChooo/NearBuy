@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<script>
+    document.getElementById("imageButton").addEventListener("click", function() {
+        var photo = this.getAttribute("data-image");
+        
+        // 이미지 파일명을 컨트롤러로 전달하여 리디렉션
+        window.location.href = "/show-image?photo=" + photo;
+    });
+</script>
+<script type="text/javascript" src="js/projectMove.js"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
+</head>
+<body>
+	<table id="profileTbl">
+		<tr>
+			<td align="center">
+				<table id="memberProfile">
+					<tr>
+						<td>
+							<img th:src="${'/photokim/' + memberProfile.photo}">
+						</td>
+						<td align="center" id="memberProfileId" th:text="${memberProfile.id}"></td>
+					</tr>
+					<tr>
+						<td id="memberDeleteBtn" align="right" colspan="2">
+							<button th:onclick="deleteMember([[${memberProfile.id}]]);">회원삭제</button>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td align="center">
+				<div id="reportDiv">
+					<table id="reportListHeader">
+						<tr>
+							<td align="center">신고날짜</td>
+							<td align="center">신고자</td>
+							<td align="center">신고 카테고리</td>
+							<td align="center">&nbsp;</td>
+							<td align="center">&nbsp;</td>
+						</tr>
+					</table>
+						<table id="reportList" th:each="r : ${reports}">
+							<tr>
+								<td align="center" th:text="${#dates.format(r.date, 'yyyy/MM/dd')}"></td>
+								<td align="center">[[${r.writerId}]]</td>
+								<td align="center" th:onclick="getReportDetail([[${r.title}]], [[${r.text}]], [[${r.category}]]);">[[${r.category}]]</td>
+					<form action="show.image">
+								<td><input name="reportPhoto" th:value="${r.photo}" type="hidden" id="reportImage"></td>
+								<td align="right"><button type="submit" th:if="${r.photo} != null">사진보기</button></td>
+							</tr>
+					</form>
+						</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<button class="memberRegistered" th:onclick="getProducts([[${memberProfile.id}]]);">판매물품</button>
+	<button class="memberRegistered" th:onclick="getTownNews([[${memberProfile.id}]]);">게시글</button>
+	<br>
+	<table id="adminProfileContent">
+		<tr>
+			<td align="center" th:insert="~{${adminProfileContentPage}}"></td>
+     	</tr>
+	</table>
+	<table id="blackArea">
+		<tr>
+			<td align="center">
+				<table id="reportDetailTbl">
+					<tr>
+						<td colspan="2" align="right">
+							<span id="x" th:onclick="closeReportDetail();">X</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							제목 : <input name="title" id="adminReportTitle" readonly="readonly">			
+						</td>
+					</tr>
+					<tr>
+						<td>
+							카테고리 : <input name="category" id="adminReportCategory" readonly="readonly">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea name="text" id="adminReportText" readonly="readonly"></textarea>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

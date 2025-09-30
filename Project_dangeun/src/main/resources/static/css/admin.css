@@ -1,0 +1,475 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUITE-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+body{-ms-overflow-style:none; }
+body::-webkit-scrollbar { display:none; }
+
+#adminHeader {
+	position: fixed;
+    padding-top: 20px;
+    top: 0;
+    width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+}
+
+#adminLogo {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'SUITE-Regular';
+	border:  #C78A5D solid 2px;
+	color: #C78A5D;
+	width: 100%;
+	height: 100px;
+	margin-bottom: 35px;
+	box-shadow: 3px 3px 2px #C78A5D;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+.goMain a {
+  font-size: 30px;
+}
+
+.goMain a:link,
+.goMain a:visited {
+  font-size: 30px;
+  color:  #C78A5D;
+  text-decoration: none;
+}
+
+.image-button {
+   cursor: pointer;
+   height: 63px;
+   width: 210px;
+}
+
+#adminHeader .adminBtn {
+	text-decoration: none;
+    border: #C78A5D solid 2px;
+    background-color: white;
+    color: #C78A5D;
+    box-shadow: 3px 3px 2px #C78A5D;
+    font-weight: 900;
+    padding: 2px;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin-left: 20px;
+    font-family: 'SUITE-Regular';
+    }
+
+#adminHeader .adminBtn:hover{
+	cursor: pointer;
+    background-color: #C78A5D;
+    border: #C78A5D solid 2px;
+    color: #f9f9f9;
+    }
+
+#adminMenu {
+	margin-left: auto;
+	margin-right: auto;
+    width: 100%;
+    border: #C78A5D solid 2px;
+    color: #C78A5D;
+    box-shadow: 3px 3px 2px #C78A5D;
+    margin-top: 60px;
+    font-weight: 900;
+    font-family: 'SUITE-Regular';
+    }
+    
+#adminContent {
+	font-family: 'SUITE-Regular';
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 300px;
+	margin-bottom: 50px;
+	width: 63%;
+}
+
+#memberManage {
+	width: 100%;
+	border: #C78A5D solid 2px;
+	padding: 10px;
+}
+
+#mamberListHeader {
+	width: 90%;
+	border: #C78A5D solid 2px;
+	margin-bottom: 15px;
+	padding: 2px;
+}
+
+#mamberListHeader td {
+	width: 25%;
+}
+
+#memberList {
+	width: 90%;
+	border: #C78A5D solid 2px;
+	padding: 2px;
+	margin-bottom: 3px;
+}
+
+#memberList td {
+	width: 25%; 
+}
+
+#memberList .memberId:hover{
+	cursor: pointer;
+}
+
+#memberList button {
+	font-family: 'SUITE-Regular';
+	border: black solid 1px;
+}
+
+#memberList button:hover{
+	cursor: pointer;
+	color: white;
+	background-color: black;
+    border: black solid 1px;
+}
+
+#adminResult {
+	position: fixed;
+	font-family: 'SUITE-Regular';
+	top: 200px;
+	right: 10px;
+}
+
+#memberSearchTbl {
+	width: 50%;
+	border: #C78A5D solid 2px;
+	border-radius: 20px;
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 15px;
+}
+
+#memberSearchTbl input {
+	font-family: 'SUITE-Regular';
+	outline: none;
+	padding: 3px;
+	border: none;
+	width: 80%;
+	height: 25px;
+}
+
+#memberSearchTbl #searchBtn {
+	width: auto;
+}
+
+#profileTbl {
+	width: 100%;
+}
+
+#memberProfile {
+	width: 500px;
+	height: 280px;
+	border: #C78A5D solid 2px;
+	padding: 13px;
+}
+
+#memberProfile #memberProfileId {
+	text-shadow: 2px 2px 2px #C78A5D;
+	padding-right: 25px;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+#memberProfile button {
+	font-family: 'SUITE-Regular';
+	color: black;
+	border: black solid 1px;
+	height: 25px;
+}
+
+#memberProfile button:hover{
+	cursor: pointer;
+	color: white;
+	background-color: black;
+    border: black solid 1px;
+}
+
+#memberProfile img {
+	max-width: 150px;
+	margin-left: 25px;
+}
+
+#memberProfile #memberDeleteBtn {
+	padding-top: 30px;
+}
+
+#reportDiv {
+	overflow-y: scroll;
+	width: 630px;
+	height: 280px;
+	border: #C78A5D solid 2px;
+	padding: 2px;
+}
+
+#reportListHeader {
+	width: 100%;
+	border: #C78A5D solid 2px;
+	margin-bottom: 10px;
+	padding: 2px;
+}
+
+#reportListHeader td {
+	width: 20%;
+}
+
+#reportList {
+	width: 100%;
+	border: #C78A5D solid 2px;
+	padding: 1px;
+	margin-bottom: 1px;
+}
+
+#reportList td {
+	width: 20%;
+}
+
+#reportList button {
+	font-family: 'SUITE-Regular';
+	border: #C78A5D solid 2px;
+	color: #C78A5D;
+}
+
+#reportList button:hover{
+	background-color: #C78A5D;
+    border: #C78A5D solid 2px;
+    color: white;
+}
+
+#reportList:hover{
+	cursor: pointer;
+}
+
+.memberRegistered {
+	font-family: 'SUITE-Regular';
+	border: #C78A5D solid 2px;
+	box-shadow: 2px 2px 2px #C78A5D;
+	background-color: #ffffff;
+	color: #C78A5D;
+	width: 70px;
+	height: 30px;
+	padding: 2px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 15px;
+    float: left;
+    cursor: pointer;
+}
+
+.memberRegistered:hover{
+	background-color: #C78A5D;
+    border: #C78A5D solid 2px;
+    color: white;
+}
+
+#adminProfileContent {
+	width: 97%;
+	padding: 1px;
+}
+
+#blackArea{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: -100%;
+	top: -100%;
+	background-color: rgba(0, 0, 0, 0);
+	transition: opacity 0.3s ease-out;
+}
+
+#reportDetailTbl textarea {
+	outline: none;
+	resize: none;
+	padding: 5px;
+	border: #C78A5D solid 2px;
+	width: 400px;
+	height: 250px;
+	font-family: 'SUITE-Regular';
+	color: #C78A5D;
+	font-size: 12pt;
+	background-color: white;
+}
+
+#reportDetailTbl input {
+	outline: none;
+	height: 27px;
+	width: 360px;
+	padding: 3px;
+	border: #C78A5D solid 2px;
+	font-family: 'SUITE-Regular';
+	font-size: 11pt;
+	color: #C78A5D;
+}
+
+#reportDetailTbl #adminReportCategory {
+	width: 330px;
+}
+
+#reportDetailTbl{
+	width: 500px;
+	height: 300px;
+	border: #C78A5D solid 2px;
+	color: #C78A5D;
+	font-family: 'SUITE-Regular';
+	box-shadow: 2px 2px 2px #C78A5D;
+	padding: 10px;
+	background-color: white;
+	padding-left: 35px;
+}
+
+#x:hover{
+	cursor: pointer;
+}
+
+#memberTownNews {
+	border: #C78A5D solid 2px;
+	color: black;
+	font-family: 'SUITE-Regular';
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+#memberTownNews td {
+	padding: 10px;
+}
+
+#memberTownNews .reply-writer-cell {
+	height: 15px;
+}
+
+#memberTownNews .title-cell {
+	padding-left: 40px;
+}
+
+#memberTownNews button {
+	font-family: 'SUITE-Regular';
+	border: black solid 1px;
+	color: black;
+	width: 50px;
+	padding: 3px;
+}
+
+#memberTownNews button:hover {
+	cursor: pointer;
+	border: black solid 1px;
+	color: white;
+	background-color: black;
+	padding: 3px;
+}
+
+#memberTownNews .photo-cell {
+	width: 20%;
+}
+
+#memberTownNews img {
+	max-width: 100%;
+}
+
+#memberProductDiv {
+	font-family: 'SUITE-Regular';
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+#memberProductTbl {
+	border: #C78A5D solid 2px;
+	padding: 1%;
+	width: 27%;
+	margin: 3%;
+}
+
+#memberProductTbl td {
+	padding-top: 7px;
+}
+
+#memberProductTbl img {
+	border: none;
+}
+
+#memberProductTbl button {
+	font-family: 'SUITE-Regular';
+	border: black solid 1px;
+	color: black;
+	width: 38px;
+	padding: 3px;
+}
+
+#memberProductTbl button:hover {
+	cursor: pointer;
+	border: black solid 1px;
+	color: white;
+	background-color: black;
+	padding: 3px;
+}
+
+#memberProductdetailDiv{
+   width: 60%;
+   height: auto;
+   border: #C78A5D solid 2px;
+   padding: 20px;
+   border-radius: 3%;
+}
+
+#memberProductdetail {
+   width: 95%;
+   border-collapse: collapse;
+}
+
+#memberProductdetail td {
+   padding: 10px;
+}
+
+#memberProductdetail #detailImg {
+   border: #C78A5D solid 2px;
+   max-height: 400px;
+   border-radius: 3%;
+}
+
+#profileImg {
+   width: 40%;
+}
+
+#memberProductdetail #profileImg img {
+   max-width: 100px;
+   border-radius: 3%;
+}
+
+#memberProductdetail #profileBtn {
+   border-top: #C78A5D solid 2px;
+   border-bottom: #C78A5D solid 2px;
+}
+
+#memberProductdetail button {
+   font-family: 'SUITE-Regular';
+   border: black solid 1px;
+   color: black;
+   width: 38px;
+   padding: 3px;
+}
+
+#memberProductdetail button:hover {
+   cursor: pointer;
+   border: black solid 1px;
+   color: white;
+   background-color: black;
+   padding: 3px;
+}
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+</head>
+<body>
+	 <table id="memberTownNews" th:each="at : ${adminTownNews}">
+	    <!-- 게시글 제목 -->
+	    <tr>
+	        <td rowspan="2" colspan="4" class="title-cell" th:text="${at.townNewsTitle}"></td>
+	        <td align="right">
+	        	<button class="delete-button" th:onclick="deleteTownNews([[${at.townNewsNum}]], [[${memberProfile.id}]]);">삭제</button>
+	        </td>
+	    </tr>
+	    <!-- 게시글 작성일 -->
+	    <tr>
+	        <td align="right" colspan="5" class="timestamp-cell" th:text="${at.townNewsTimestampFormatted}"></td>
+	    </tr>
+	    <!-- 이미지, 게시글 내용 -->
+	    <tr>
+	    	<td class="photo-cell">
+	            <img alt="" th:src="${'/photokim/' + at.townNewsPhoto}" class="resize-image">
+	        </td>
+	        <td colspan="4" class="text-cell" th:text="${at.townNewsText}"></td>
+	    </tr>
+	   <!-- 댓글 내용 표시 -->
+	    <tr th:each="tnr : ${at.replies}">
+	        <td>&nbsp</td>
+	        <td style="font-size: 13px" class="reply-writer-cell" th:text="${tnr.townNewsReplyWriterId}"></td>
+	        <td style="font-size: 13px" class="reply-text-cell" th:text="${tnr.townNewsReplyText}"></td>
+	        <td style="font-size: 13px" class="reply-date-cell" th:text="${tnr.townNewsReplyTimestampFormatted}"></td>
+	    </tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+#header {
+	position: relative;
+	margin-top: 40px;
+	top: 0%;
+	width: 1200px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#header td {
+	padding: 10px;
+}
+
+#header img {
+	height: 50px;
+	width: 50px;
+}
+
+#header button {
+	border: #FFA500 solid 2px;
+	background-color: #FFA500;
+	color: white;
+}
+
+#header button:hover {
+	cursor: pointer;
+	background-color: #FF6347;
+	border: #FF6347 solid 2px;
+}
+
+.goMain a {
+	font-size: 30px;
+}
+
+.goMain a:link,
+.goMain a:visited {
+	font-size: 30px;
+	color: #FFA500;
+	/* 링크의 기본 및 방문한 링크의 글꼴 색상 */
+	text-decoration: none;
+	/* 밑줄 제거 */
+}
+
+.image-button {
+	cursor: pointer;
+}
+
+.searchArea input {
+	width: 500px;
+	height: 30px;
+	border: #FFA500 solid 2px;
+	outline: none;
+}
+
+.searchArea input:focus {
+	border-color: #FFA500;
+	/* 포커스 시 테두리 스타일 변경 */
+}
+
+#menuTbl {
+	position: relative;
+	top: 20%;
+	left: 50%;
+	width: 1200px;
+	transform: translate(-50%, -50%);
+	border: #FFA500 solid 2px;
+	background-color: gold;
+}
+
+#menuTbl a:link,
+#menuTbl a:visited {
+	color: white;
+	/* 링크의 기본 및 방문한 링크의 글꼴 색상 */
+	text-decoration: none;
+	/* 밑줄 제거 */
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	z-index: 1;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown-content a {
+	padding: 10px;
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+
+#contentPage {
+	position: relative;
+	width: 1200px;
+	height: 350px;
+	top: 200px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#profilePhoto {
+	max-width: 300px;
+	max-height: 300px;
+}
+
+#updateTbl {
+	position: relative;
+	width: 600px;
+	height: 350px;
+	top: 500px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: #FFA500 solid 2px;
+}
+
+#updateTbl td{
+	border: #FFA500 solid 2px;
+}
+
+#updateTbl button {
+	border: #FFA500 solid 1px;
+	display: inline-block;
+	padding: 5px 5px;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	color: white;
+	background-color: #FFA500;
+}
+
+#updateTbl input, select, option, textarea {
+	border: #FFA500 solid 1px;
+	border-radius: 5%;
+}
+
+#detailImg {
+	max-width: 300px;
+	max-height: 300px;
+}
+
+
+#ment {
+	top: 80px;
+	position: relative;
+	text-align: left;
+	left: 18%;
+	margin: 30px;
+	font-size: 24px;
+	color: #FFA500;
+}
+
+
+#sellBtn {
+	position: fixed;
+	bottom: 80px;
+	right: 100px;
+	background-color: #FFA500;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+#sellBtn:hover {
+	background-color: #FF6347;
+}
+
+#productTbl {
+	position: relative;
+	width: 1200px;
+	height: 300px;
+	top: 250px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+}
+
+#productTbl a {
+	border: #FFA500 solid 1px;
+	display: inline-block;
+	padding: 5px 5px;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	color: white;
+	background-color: #FFA500;
+}
+
+.product-list {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	/* 카드 사이의 간격 */
+	padding: 20px;
+	/* 카드 목록 주변 여백 */
+}
+
+.product-card {
+	width: calc(33.33% - 20px);
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	border: #FFA500 solid 2px;
+	border-radius: 5%;
+	max-width: 250px;
+}
+
+.product-photo {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	margin-right: 10px;
+}
+
+.product-info {
+	flex: 1;
+}
+
+#suTextarea {
+	width: 300px;
+	height: 150px;
+	resize: none;
+}
+
+#sellTbl {
+	position: relative;
+	width: 600px;
+	height: 350px;
+	top: 200px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: #FFA500 solid 2px;
+}
+
+#sellTbl input, textarea, select, option{
+	border: #FFA500 solid 1px;
+}
+
+#sellTbl button {
+	border: #FFA500 solid 1px;
+	display: inline-block;
+	color: white;
+	padding: 5px 5px;
+	font-size: 13px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	background-color: #FFA500;
+}
+

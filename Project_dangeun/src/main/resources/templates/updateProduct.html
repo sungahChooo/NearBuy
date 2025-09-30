@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="csskwon/sell.css">
+<script type="text/javascript" src="jskwon/carrotCheck.js"></script>
+<script type="text/javascript" src="jskwon/carrotValidCheck.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="do.update" method="post" enctype="multipart/form-data" onsubmit="return updateCheck(this);">
+		<table id="updateTbl" th:each="u : ${updateProduct}">
+			<tr>
+				<td align="center" style="font-size: 16pt;">상품 정보 수정</td>
+			</tr>
+			<tr>
+				<td>카테고리 : 
+					<select name="category">
+						<option>카테고리를 선택하세요.</option>
+						<option>---------------------------------</option>
+						<option th:selected="${u.category == '패션'}" th:value="패션">패션</option>
+						<option th:selected="${u.category == '전자'}" th:value="전자">전자</option>
+						<option th:selected="${u.category == '생활'}" th:value="생활">생활</option>
+						<option th:selected="${u.category == '스포츠'}" th:value="스포츠">스포츠</option>
+						<option th:selected="${u.category == '가구'}" th:value="가구">가구</option>
+						<option th:selected="${u.category == '반려동물'}" th:value="반려동물">반려동물</option>
+						<option th:selected="${u.category == '취미'}" th:value="취미">취미</option>
+						<option th:selected="${u.category == '기타'}" th:value="기타">기타</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img id="detailImg" th:src="${'/photokwon/' + u.photo}">
+				<p>
+						<input name="photoo" type="file" multiple="multiple"></td>
+			</tr>
+			<tr>
+				<td><input placeholder="상품 이름" name="name" th:value="${u.name}">
+				</td>
+			</tr>
+			<tr>
+			</tr>
+			<tr hidden>
+				<td><input th:value="${u.id}" name="id"></td>
+			</tr>
+			<tr hidden>
+				<td><input th:value="${u.state}" name="state"></td>
+			</tr>
+			<tr hidden>
+				<td><input th:value="${u.loc}" name="loc"></td>
+			</tr>
+			<tr>
+				<td><input th:value="${u.price}" name="price"></td>
+			</tr>
+			<tr hidden>
+				<td th:text="${u.view}"><input name="view"></td>
+			</tr>
+			<tr hidden>
+				<td><input name="memberId" th:value="${u.memberId}"></td>
+			</tr>
+			<tr>
+				<td><textarea id="suTextarea" placeholder="내용을 입력하세요"
+						name="description" th:utext="${u.description}">
+					</textarea></td>
+			</tr>
+			<tr>
+				<td align="center">
+					<button>수정</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

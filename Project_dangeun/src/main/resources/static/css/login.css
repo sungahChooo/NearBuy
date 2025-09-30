@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUITE-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+#loginLogo {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	font-family: 'SUITE-Regular';
+	border:  #C78A5D solid 2px;
+	color: #C78A5D;
+	width: 500px;
+	height: 100px;
+	margin-bottom: 35px;
+	box-shadow: 3px 3px 2px #C78A5D;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+.goMain a {
+  font-size: 30px;
+}
+
+.goMain a:link,
+.goMain a:visited {
+  font-size: 30px;
+  color:  #C78A5D;
+  text-decoration: none;
+}
+
+.image-button {
+   cursor: pointer;
+   height: 63px;
+   width: 210px;
+}
+
+#loginTbl {
+	font-family: 'SUITE-Regular';
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	height: 400px;
+	border:  #C78A5D solid 2px;
+	padding: 60px;
+}
+
+#loginTbl input {
+	font-family: 'SUITE-Regular';
+	width: 300px;
+    height: 30px;
+    border: #C78A5D solid 2px;
+    outline: none;
+    padding: 3px;
+    color: black;
+}
+
+#loginTbl input:focus {
+  border-color: #B3AB93;
+}
+
+#loginTbl button {
+	font-family: 'SUITE-Regular';
+	border: #C78A5D solid 2px;
+    background-color: #C78A5D;
+    color: white;
+    width: 300px;
+    height: 40px;
+    padding: 3px;
+    font-size: 19px;
+}
+
+#loginTbl button:hover {
+	cursor: pointer;
+    background-color: #B3AB93;
+    border: #B3AB93 solid 2px;
+}
+
+#loginTbl a {
+	text-decoration: none;
+	border: #C78A5D solid 2px;
+    background-color: #C78A5D;
+    color: white;
+    padding: 3px;
+    width: 80px;
+    height: 20px;
+    font-size: 14px;
+}
+
+#loginTbl a:hover {
+	cursor: pointer;
+    background-color: #B3AB93;
+    border: #B3AB93 solid 2px;
+}
+
+#joinTbl{
+	font-family: 'SUITE-Regular';
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	height: 700px;
+	border:  #C78A5D solid 2px;
+	padding: 50px;
+}
+
+#joinTbl input{
+	font-family: 'SUITE-Regular';
+	width: 300px;
+    height: 30px;
+    border: #C78A5D solid 2px;
+    outline: none;
+	padding: 3px;
+}
+
+#joinTbl input:focus{
+	border-color: #B3AB93;
+}
+
+.addr{
+	margin: 2.5px;
+}
+
+#joinTbl button{
+	font-family: 'SUITE-Regular';
+	border: #C78A5D solid 2px;
+    background-color: #C78A5D;
+    color: white;
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#joinTbl button:hover{
+	cursor: pointer;
+    background-color: #B3AB93;
+    border: #B3AB93 solid 2px;
+}
+
+#memberInfoTbl{
+	font-family: 'SUITE-Regular';
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	height: 500px;
+	border:  #C78A5D solid 2px;
+	padding: 50px;
+	margin-bottom: 50px;
+}
+
+#memberInfoTbl th{
+	font-size: 15pt;
+	text-shadow: 2px 2px 2px #C78A5D;
+	padding-bottom: 15px;
+}
+
+#memberInfoTbl input{
+	font-family: 'SUITE-Regular';
+	width: 300px;
+    height: 30px;
+    color: black;
+    border: #C78A5D solid 2px;
+    outline: none;
+	padding: 3px;
+}
+
+#memberInfoTbl input:focus{
+	border-color: #C78A5D;
+}
+
+.addr{
+	margin: 2.5px;
+}
+
+#memberInfoTbl img{
+	width: 300px;
+	border: #C78A5D solid 2px;
+	border-radius: 10px;
+}
+
+#memberInfoTbl button{
+	font-family: 'SUITE-Regular';
+	border: #C78A5D solid 2px;
+    background-color: #C78A5D;
+    color: white;
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#memberInfoTbl button:hover{
+	cursor: pointer;
+    background-color: #B3AB93;
+    border: #B3AB93 solid 2px;
+}
+
+#loginTbl #loginPw{
+	width: 275px;
+}
+
+#joinTbl #joinPw{
+	width: 275px;
+}
+
+#joinTbl #joinPwChk{
+	width: 275px;
+}
+
+#memberInfoTbl #infoPw{
+	width: 275px;
+}
+
+#memberInfoTbl #infoChkPw{
+	width: 275px;
+}
+
+#goLogin {
+	border: #C78A5D solid 1px;
+	display: inline-block;
+	padding: 5px 5px;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	color: white;
+	background-color: #C78A5D;
+}
+
+#goLogin:hover{
+	background-color: #C78A5D;
+}
+
+
+#loginedTbl a{
+	border: #C78A5D solid 1px;
+	display: inline-block;
+	padding: 5px 5px;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	color: white;
+	background-color: #C78A5D;
+}
+
+#loginedTbl a:hover{
+	border: #B3AB93 solid 1px;
+	background-color: #B3AB93;
+	color: black;
+}
+

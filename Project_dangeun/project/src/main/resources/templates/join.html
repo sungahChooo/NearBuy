@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://kit.fontawesome.com/d4f5b29cd3.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/project_jQuery.js"></script>
+<script type="text/javascript" src="js/projectCheck.js"></script>
+<script type="text/javascript" src="js/skgusValidChecker.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<table id="loginLogo">
+		<tr>
+			<td align="center" class="goMain">
+            	<img alt="" src="image/carrot.png" class="image-button">
+            	<a id="goMain" href="/">당근 마켓</a>
+         	</td>
+		</tr>
+	</table>
+	<form action="member.join" method="post" enctype="multipart/form-data" onsubmit="return joinCheck(this);">
+		<table id="joinTbl">
+			<tr>
+				<td align="center">
+					<input id="id" name="id" placeholder="id" maxlength="20" autofocus="autofocus"><br>
+					<span id="idCheckMessage"></span>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="joinPw" name="pw" type="password" placeholder="pw (숫자 필수)" maxlength="20" autocomplete="off">
+					<i id="joinIcon" class="fa-solid fa-eye" onclick="joinPasswordVisibility();"></i>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="joinPwChk" name="pwChk" placeholder="pw 확인" maxlength="20" type="password" autocomplete="off">
+					<i id="joinChkIcon" class="fa-solid fa-eye" onclick="joinPasswordChkVisibility();"></i>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input name="name" placeholder="이름" maxlength="10">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="date" name="birth" placeholder="생년월일 8자리" maxlength="8">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="memberJoinAddr1" readonly="readonly" class="addr" name="address1" placeholder="우편번호"><br>
+					<input id="memberJoinAddr2" readonly="readonly" class="addr" name="address2" placeholder="주소"><br>
+					<input class="addr" name="address3" placeholder="상세주소" maxlength="20">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					프로필 사진
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input name="photoo" type="file">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<button type="submit">가입</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#id").on("blur", function() {
+			var id = $(this).val();
+			
+			if (id) {
+				$.ajax({
+					uri : "/checkMemberID",
+					data : { id: id },
+					success : function(response) {
+						try {
+							console.log(response);
+							var data = JSON.stringify(response);
+							console.log(data);
+							alert(data);
+							if (data.exists) {
+								$("#idCheckMessage").text("이미 사용 중인 아이디입니다.");
+								$("#idCheckMessage").css("color", "red")
+							} else {
+								$("#idCheckMessage").text("사용 가능한 아이디입니다.");
+								$("#idCheckMessage").css("color", "black")
+							}
+						} catch (error) {
+							console.error("JSON parsing error:", error);
+						}
+					}
+				});
+			}
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="csskwon/sell.css">
+<script type="text/javascript">
+function addWishlist(productIdd,m){
+	location.href="/productDetail.wishlist.add?id="+productIdd+"&category="+m;
+}
+
+function removeWishlist(productIdd,m){
+	location.href="/productDetail.wishlist.remove?id="+productIdd+"&category="+m;
+}
+
+function setupHeartToggle(heartButton,productId,productCategory) {
+	const heartIcon = heartButton.querySelector('.heart-icon');
+	const isHeartActive = localStorage.getItem(`heart_${productId}`) === 'true';
+	
+	// 초기 상태 설정
+    if (isHeartActive) {
+        heartIcon.classList.add('active');
+    } else {
+        heartIcon.classList.remove('active');
+    }
+	
+	heartButton.addEventListener('click', function() {
+		event.stopPropagation();
+		if (heartIcon.classList.contains('active')) {
+			
+			localStorage.setItem(`heart_${productId}`, 'false');
+			heartIcon.classList.remove('active');
+            removeWishlist(productId,productCategory);
+        } else {
+        	localStorage.setItem(`heart_${productId}`, 'true');
+        	heartIcon.classList.add('active');
+            addWishlist(productId,productCategory);
+        }
+	});
+}
+
+	function deleteProduct(n){
+		var confirmDelete = confirm("삭제하시겠습니까?");
+	    
+	    if (confirmDelete) {
+	        location.href = "go.delete?id=" + n;
+	    } else {
+	    	
+	    }
+	}
+	function goDetail(n, m){
+		location.href="go.detail?id=" + n +"&category=" + m;
+		
+	}
+	
+	function addWish(n,m){
+		location.href="add.wish?id=" + n +"&category=" + m;
+	}
+
+	function removeWish(n,m){
+		location.href="add.wish?id=" + n +"&category=" + m;
+	}
+	
+	function goUpdate(n){
+		location.href="go.update?id=" + n;
+	}
+	
+	function goProfile(id){
+		location.href="go.profile?id=" + id.id;
+	}
+	
+	function doDateUpdate(n){
+		 var confirmUpdate = confirm("끌올하시겠습니까?");
+		    
+		    if (confirmUpdate) {
+		        location.href = "do.dateupdate?id=" + n;
+		    } else {
+		    	
+		    }
+	}
+	
+	
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+		<table id="detailArea" th:each="d : ${productDetail}">
+			<tr>
+				<td colspan="4" align="center">
+				<img id="detailImg" th:src="${'/photo/' + d.photo}">
+				</td>
+			</tr>
+			<tr id="profileBtn" th:onclick="goProfile([[${d.memberId}]]);">
+				<td>
+					<img id="profileImg" th:src="${'/photo/' + d.memberId.photo}">
+				</td>
+				<td align="right" th:text="${'판매자 : ' + d.memberId}" colspan="3"></td>
+			</tr>
+			<tr>
+				<td th:text="${d.name}"></td>
+				<td align="right" th:text="${d.category}" colspan="3"></td>
+			</tr>
+			<tr>
+				<td class="priceTd" th:text="${d.price} + '원'"></td>
+				<td align="right" th:text=${d.loc} colspan="3"></td>
+			</tr>
+			<tr>
+				<td id="detailDesc" th:text="${d.description}" colspan="2"></td>
+				<div th:if="${session.loginMember.id != d.memberId.id}">
+				<td align="right"><button th:if="${session.loginMember!=null}" 
+					id="heartButton" class="heart-button" 
+					th:data-product-id="${productDetail.id}" th:data-product-category="${d.category}">
+						<span id="heartIcon" class="heart-icon"></span>
+					</button> &nbsp <button>채팅</button></td>
+				
+				</div>
+			</tr>
+			<tr>
+				<td th:text="'조회수 ' + ${d.view}" colspan="4"></td>
+			</tr>
+			<div th:if="${d.state == '판매중'}">
+			<tr th:if="${session.loginMember.id == d.memberId.id}">
+				<td class="updateBtn" th:onclick="goUpdate([[${d.id}]]);">수정</td>
+				<td class="deleteBtn" th:onclick="deleteProduct([[${d.id}]]);">삭제</td>
+				<td class="dateUpdateBtn" th:onclick="doDateUpdate([[${d.id}]]);">끌올</td>
+			</tr>
+			</div>
+		</table>
+	<div style="font-weight: bold;" id="categoryMent">[ 연관 카테고리 인기 상품 ]</div>
+	<table id="sellingTbl">
+		<tr>
+		<div th:each="s : ${getByCategory}">
+			<td th:onclick="goDetail([[${s.id}]], [[${s.category}]]);">
+				<div class="product-list">
+                <div class="product-card">
+                  <img th:src="${'/photo/' + s.photo}" alt="사진" class="product-photo">
+                    <div class="product-info" th:data-state="${s.state}">
+                        <h2 th:text="${s.name}"></h2>
+                        <p  class="priceTd" th:text="${s.price} + '원'"></p>
+                        <p th:text="'조회수 ' + ${s.view}"></p>
+                    </div>
+                </div>
+            </div>
+			</td>
+		</div>
+		</tr>
+	</table>
+	<script>
+	const heartButtons = document.querySelectorAll('.heart-button');
+	heartButtons.forEach(function(heartButton) {
+	    const productId = heartButton.getAttribute('data-product-id');
+	    const productCategory = heartButton.getAttribute('data-product-category');
+	    setupHeartToggle(heartButton, productId, productCategory);
+	});
+	</script>
+</body>
+</html>

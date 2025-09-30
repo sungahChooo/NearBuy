@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+</head>
+<body>
+	<table id="memberManage">
+		<tr>
+			<td align="center">
+				<form action="member.search">
+					<table id="memberSearchTbl">
+						<tr>
+							<td>
+								<input id="search" name="search" placeholder="회원 검색" maxlength="30">
+							</td>
+							<td align="right">
+								<input type="image" src="img/search.png" id="searchBtn">
+							</td>
+						</tr>
+					</table>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<table id="mamberListHeader">
+					<tr>
+						<td align="left">아이디</td>
+						<td align="left">이름</td>
+						<td align="left">신고여부</td>
+						<td align="right">&nbsp;</td>
+					</tr>
+				</table>
+				<table id="memberList" th:each="memberInfo : ${membersWithStatus}">
+					<tr>
+						<td align="left" class="memberId" th:onclick="showProfile([[${memberInfo.member.id}]]);">[[${memberInfo.member.id}]]</td>
+						<td align="left">[[${memberInfo.member.name}]]</td>
+						<td align="left">
+							<span th:if="${memberInfo.reported}">O</span>
+							<span th:unless="${memberInfo.reported}">X</span>
+						</td>
+						<td align="right">
+							<button th:onclick="deleteMember([[${memberInfo.member.id}]]);">회원삭제</button>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

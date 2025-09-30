@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>구매확정페이지(미완성)</title>
+<script type="text/javascript">
+	/* function updateProduct(m,p){
+	 location.href="/mystore.update.complete?id=" + m + "&productId=" + p;
+	 }
+	 */
+	$(function() {
+		$("button").click(function() {
+			// 선택된 구매자 select 요소 가져오기
+			var buyerSelect = $("select[name='buyer']");
+
+			// 선택된 구매자의 값(value) 가져오기
+			var buyerValue = buyerSelect.val();
+
+			// 선택된 구매자의 텍스트(text) 가져오기
+			var buyerText = buyerSelect.find("option:selected").text();
+
+			// 값과 텍스트를 출력하여 확인 (콘솔에 출력)
+
+			console.log("선택된 구매자 값: " + buyerValue);
+			console.log("선택된 구매자 텍스트: " + buyerText);
+
+			// 이제 이 값을 사용하여 필요한 작업을 수행할 수 있습니다.
+		});
+	});
+</script>
+
+</head>
+<body>
+	<table id="saleStateArea" border="1">
+		<tr>
+			<td>구매확정</td>
+			</tr>
+	</table>
+	<div id="productDivCen">
+		<table id="productTbl" th:each="p : ${ppproduct}">
+			<tr>
+				<td colspan="2">
+					<div>
+						<img th:src="${'/photoyun/'+p.photo}" width="100%" height="200px">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div th:text="${p.name}"></div>
+				</td>
+			<tr>
+				<td style="font-weight: bold;" colspan="2">
+					<div th:text="${p.price}+'원'"></div>
+				</td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;" colspan="2">
+					<div th:text="${p.description}"></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="productDivBottom">
+	<form action="mystore.update.complete" method="post">
+		<table>
+			<tr>
+				<td align="right">구매자 선택: 
+					<select name="buyer">
+						<option th:each="members : ${members}" th:value="${members.id}"
+							th:text="${members.id}"></option>
+					</select>
+				</td>
+				<td><input name="productId" th:value="${ppproduct.id}"
+					type="hidden"></td>
+				<td>
+					<div class="product-action">
+						<button type="submit" id="confirmBtn">구매자 확정</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</body>
+</html>

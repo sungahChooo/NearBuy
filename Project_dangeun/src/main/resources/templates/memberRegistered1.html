@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<script type="text/javascript">
+function goDetail(n, m){
+	location.href="go.detail?id=" + n +"&category=" + m;
+	
+}
+
+</script>
+</head>
+<body>
+	<div id="memberProductDiv">
+      <table id="memberProductTbl" th:each="ap:${adminProducts}" th:onclick="showProductDetail([[${ap.productId}]]);">
+         <tr>
+            <td colspan="2">
+            	<img th:src="${'/photokim/'+ap.photo}" width="100%" height="200px">
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2" th:text="${ap.name}"></td>
+         <tr>
+            <td colspan="2" style="font-weight: bold;" th:text="${ap.price}+'원'"></td>
+         </tr>
+         <tr>
+            <td style="font-size: 13px" th:text="${ap.loc}"></td>
+            <td style="font-size: 13px" align="right" th:text="${#dates.format(ap.uploadDate, 'yyyy-MM-dd')}"></td>
+         </tr>
+         <tr>
+            <td style="font-size: 13px" th:text="${ap.state}"></td>
+            <td align="right">
+               <button style="font-size: 11px" th:onclick="deleteProducts([[${ap.productId}]], [[${memberProfile.id}]]);">삭제</button>
+            </td>
+         </tr>
+      </table>
+   </div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/********************************게시물 조회테이블************************************************/
+
+
+.newsnum {
+	background-color: #ffcc00;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+
+
+/* 수정 및 삭제 버튼 스타일 */
+.reply-button {
+	padding: 6px 12px;
+	/* 내부 여백 설정 */
+	background-color: #C78A5D;
+	/* 배경색 */
+	color: white;
+	/* 글자색 */
+	border: none;
+	/* 테두리 제거 */
+	border-radius: 4px;
+	/* 둥근 모서리 처리 */
+	cursor: pointer;
+	/* 마우스 커서 모양 변경 */
+	margin-right: 5px;
+	/* 오른쪽 여백 추가 */
+}
+
+/* 댓글 셀 스타일 */
+.reply-cell {
+	padding: 10px;
+	/* 셀 내부 여백 설정 */
+	border: 1px solid #ccc;
+	/* 셀 테두리 스타일 지정 */
+	vertical-align: top;
+	/* 셀 내용을 위로 정렬 */
+}
+
+/* 댓글 작성자, 내용, 날짜 셀 스타일 */
+.reply-writer-cell {
+	color: #FF6347;
+	font-family: "neo.otf";
+	font-weight: 700;
+}
+
+.reply-text-cell {
+	color: #555;
+	/* 색상 설정 */
+}
+
+td.text-cell {
+	padding: 10px;
+	/* 셀 안의 내용과 테두리 사이의 간격 조절 */
+	background-color: white;
+	/* 셀 배경색을 흰색으로 설정 */
+	border: 2px solid #C78A5D;
+	/* 셀 테두리 스타일 및 색상 설정 */
+	height: 200px;
+	border-radius: 15px;
+}
+
+
+
+.reply-date-cell {
+	text-align: right;
+}
+
+.resize-input {
+	border: none;
+	/* 기본 테두리 제거 */
+	border-bottom: 3px solid #FF6347;
+	outline: none;
+	/* 포커스 효과 제거 */
+	width: 1100px;
+	height: 25px;
+	border-radius: 3px;
+}
+
+/* 게시글 제목 셀 스타일 */
+.title-cell {
+	font-weight: bold;
+	/* 굵은 글꼴 */
+	font-size: 20px;
+	font-family: "joyak.ttf";
+}
+
+/* 게시글 작성일 셀 스타일 */
+.timestamp-cell {
+	color: #777;
+	background-color: #C78A5D;
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+
+.image-cell {
+	width: 400px;
+	height: auto;
+	border: 2px solid #C78A5D;
+	padding: 0px;
+	background-color: white;
+	border-radius: 15px;
+}
+
+
+
+/* 게시글 이미지 크기 조정 */
+.resize-image {
+	max-width: 400px;
+	max-height: 400px;
+	width: auto;
+	height: auto;
+	border-radius: 10px;
+}
+
+
+
+
+/* 댓글 입력란 행 스타일 */
+.reply-input-row textarea {
+	width: 90%;
+	/* 전체 너비 설정 */
+	padding: 10px;
+	/* 내부 여백 설정 */
+	border: 1px solid #ccc;
+	/* 테두리 스타일 지정 */
+	border-radius: 5px;
+	/* 테두리 둥글게 처리 */
+	resize: none;
+}
+
+.reply-button {
+	padding: 6px 12px;
+	/* 내부 여백 설정 */
+	background-color: #FF6347;
+	/* 배경색 */
+	color: white;
+	/* 글자색 */
+	border: none;
+	/* 테두리 제거 */
+	border-radius: 4px;
+	/* 둥근 모서리 처리 */
+	cursor: pointer;
+	/* 마우스 커서 모양 변경 */
+}
+
+/* 댓글 셀 내용의 스타일 */
+.reply-cell-content {
+	display: flex;
+	align-items: center;
+}
+
+/* 수정 버튼 스타일 */
+.edit-button {
+	padding: 6px 12px;
+	background-color: #C78A5D;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-right: 10px;
+	float: right;
+}
+
+/* 삭제 버튼 스타일 */
+.delete-button {
+	padding: 6px 12px;
+	background-color: #C78A5D;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-right: 10px;
+	float: right;
+}

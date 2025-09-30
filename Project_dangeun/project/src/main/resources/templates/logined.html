@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+</head>
+<body>
+	<table th:fragment="loginedFragment" id="loginedTbl">
+		<tr>
+			<td>
+				<a th:text="${session.loginMember.id}" id="goLogin" href="member.info.go"></a>
+				<a id="goLogin" href="member.logout">로그아웃</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a id="goLogin" href="member.login.go">내 활동</a>
+				<a id="goLogin" href="member.login.go">위치 정보 수정</a>
+				<a id="goLogin" href="member.login.go">내 채팅</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

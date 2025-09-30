@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<link rel="stylesheet" type="text/css" href="/index.css">
+<link rel="stylesheet" type="text/css" href="/login.css">
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<link rel="stylesheet" type="text/css" href="/product.css">
+<script type="text/javascript">
+function selectCategory(category,search) {
+	location.href = "products?category="+category+"&search?search="+search;
+}
+</script>
+</head>
+
+<body>
+
+	<table id="header">
+		<tr>
+			<td align="right" class="goMain">
+				<a id="goMain" href="/">
+			<img
+				src="/img/carrot.png" class="image-button">
+				</a>
+				</td>
+			<td class="searchArea" align="center">
+				<form action="product.search">
+					<input placeholder="검색어를 입력하세요" name="search">
+					<button id="searchBtn">검색</button>
+				</form>
+			</td>
+			 <td align="center" th:insert="~{${loginPage}}"></td>
+		</tr>
+	</table>
+	<table id="menuTbl" border="1">
+		<tr align="center">
+			<td>
+				<div class="dropdown">
+					카테고리
+					<div class="dropdown-content">
+						<div th:each="c:${cl}" class="dorp">
+							<button style="float:left" th:onclick="selectCategory([[${c}]],[[${search}]]);"
+								th:text="${c}"></button>
+						</div>
+					</div>
+				</div>
+			</td>
+			<td><a href="/get.allproducts">전체 매물</a></td>
+			<td><a href="/townnews.go">게시판</a></td>
+		</tr>
+	</table>
+	
+	<table id="contentPage">
+		<tr>
+			<td th:insert="~{${contentPage}}"></td>
+		</tr>
+	</table>
+	<a href="go.sell" th:if="${session.loginMember != null and session.loginMember.loc != null}"
+>
+			<button style="font-weight: bold; font-size:23px;" id="sellBtn">+</button>
+	</a>
+	<div id="result">[[${result}]]</div>
+</body>
+</html>

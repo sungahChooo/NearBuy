@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://kit.fontawesome.com/d4f5b29cd3.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/project_jQuery.js"></script>
+<script type="text/javascript" src="js/projectCheck.js"></script>
+<script type="text/javascript" src="js/projectMove.js"></script>
+<script type="text/javascript" src="js/skgusValidChecker.js"></script>
+</head>
+<body>
+	<table id="loginLogo">
+		<tr>
+			<td align="center" class="goMain">
+            	<img alt="" src="image/carrot.png" class="image-button">
+            	<a id="goMain" href="/">당근 마켓</a>
+         	</td>
+		</tr>
+	</table>
+		<table id="memberInfoTbl">
+	<form action="member.info.update" method="post" enctype="multipart/form-data" onsubmit="return memberUpdateCheck(this);">
+			<tr>
+				<th>회원정보</th>
+			</tr>
+			<tr>
+				<td align="center">
+					<input name="id" maxlength="20" th:value="${session.loginMember.id}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="infoPw" name="pw" maxlength="20" type="password" th:value="${session.loginMember.pw}" placeholder="pw (영문,숫자 필수)">
+					<i id="infoIcon" class="fa-solid fa-eye" onclick="infoPasswordVisibility();"></i>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="infoChkPw" name="pwChk" maxlength="20" type="password" th:value="${session.loginMember.pw}" placeholder="pw 확인">
+					<i id="infoChkIcon" class="fa-solid fa-eye" onclick="infoPasswordChkVisibility();"></i>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input name="name" th:value="${session.loginMember.name}" placeholder="이름">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="birthdayInfo" th:value="${#dates.format(date, 'yyyy-MM-dd')}" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="memberJoinAddr1" readonly="readonly" class="addr" name="address1" th:value="${address1}" placeholder="우편번호"><br>
+					<input id="memberJoinAddr2" readonly="readonly" class="addr" name="address2" th:value="${address2}" placeholder="주소"><br>
+					<input class="addr" name="address3" th:value="${address3}" placeholder="상세주소" maxlength="20">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<img th:src="${'/photo/' + session.loginMember.photo}">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input name="photoo" type="file">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<button>수정</button>
+	</form>
+					<button onclick="bye();">탈퇴</button>
+				</td>
+			</tr>
+		</table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>내 활동 페이지</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" type="text/css" href="login.css">
+<link rel="stylesheet" type="text/css" href="product.css">
+<link rel="stylesheet" type="text/css" href="mystore.css">
+<script type="text/javascript">
+function gowishlist(n){
+	location.href="mystore.wishlist.get?id=" + n;
+}
+</script>
+</head>
+<body>
+	<table id="header">
+		<tr>
+			<td align="center" class="goMain">
+				<a id="goMain" href="/">
+			<img src="img/carrot.png"
+				class="image-button"> 
+				</a>
+				</td>
+			<td class="searchArea" align="center"><input
+				placeholder="search">
+				<button>검색</button></td>
+			<td align="center" th:insert="~{${loginPage}}"></td>
+		</tr>
+	</table>
+	<table id="menuTbl" border="1">
+		<tr align="center">
+			<td><a th:href="'mystore.sale?id=' + ${session.loginMember.id}"> 판매내역 </a></td>
+			<td><a th:href="'mystore.purchase?id=' + ${session.loginMember.id}">구매내역</a></td>
+			<td><a th:href="'mystore.wishlist.go?id=' + ${session.loginMember.id}">찜목록조회</a></td>
+			<td><a th:href="'mystore.townnews.go?id=' + ${session.loginMember.id}">게시판조회</a></td>
+			<td><a th:href="'mystore.report.go?id=' + ${session.loginMember.id}">신고조회</a></td>
+		</tr>
+	</table>
+	
+	<table id="contentPage">
+		<tr>
+			<td th:insert="~{${contentPage}}"></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4252512b8809563ec4a5a062dbbb1ee&libraries=services"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+</head>
+<body>
+	<table id="mapTable">
+		<tr>
+			<td>
+				<div id="map" style="width: 100%; height: 350px;"></div>
+			</td>
+
+		</tr>
+		<tr>
+			<td align="center"><a href="/" id="showLoc">홈으로 가기</a></td>
+		</tr>
+	</table>
+	<script>
+		var map;
+		var marker;
+
+		function saveToDatabase(addr) {
+			$.ajax({
+				url : "/update.location",
+				type : "POST",
+				data : {
+					districtName : addr
+				},
+				success : function(response) {
+					
+					alert(JSON.stringify(response));
+				}
+
+			});
+		}
+		$(function() {
+
+			navigator.geolocation.getCurrentPosition(function(l) {
+						var lat = l.coords.latitude; // 위도
+						var lng = l.coords.longitude; // 경도
+						var curLoc = new kakao.maps.LatLng(lat, lng);
+
+						var container = document.getElementById('map');
+						var options = {
+							center : curLoc,
+							level :3
+						};
+						map = new kakao.maps.Map(container, options);
+
+						marker = new kakao.maps.Marker({
+							map : map,
+							position : curLoc
+						});
+
+						$.ajax({
+									url : "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json",
+									type : "GET",
+									data : {
+										y : lat,
+										x : lng
+									},
+									beforeSend : function(req) {
+										req.setRequestHeader(
+														"Authorization",
+														"KakaoAK 7b95d7e21f16eb4a91fd26cccd8a6efe")
+									},
+									success : function(zzz) {
+										var address=zzz.documents[0].region_1depth_name+" "+zzz.documents[0].region_2depth_name;
+										alert(address);
+										saveToDatabase(address);
+									}
+								});
+
+					});
+
+		});
+	</script>
+
+
+</body>
+</html>

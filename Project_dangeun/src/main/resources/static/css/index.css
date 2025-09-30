@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+#header {
+	position: fixed;
+   margin-top: 40px;
+   top: 0;
+   width: 1200px;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+#header td {
+   padding: 10px;
+}
+
+#header img {
+   height: 50px;
+   width: 50px;
+}
+
+#goLogin{
+	text-decoration: none;
+    border: #FFA500 solid 2px;
+    background-color: white;
+    color: #FFA500;
+    box-shadow: 3px 3px 2px #FFA500;
+    font-weight: 900;
+}
+
+#goLogin:hover{
+	cursor: pointer;
+    background-color: #FF6347;
+    border: #FF6347 solid 2px;
+    color: #f9f9f9;
+}
+
+.goMain a {
+  font-size: 30px;
+}
+
+.goMain a:link,
+.goMain a:visited {
+  font-size: 30px;
+  color:  #FFA500; /* 링크의 기본 및 방문한 링크의 글꼴 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+.image-button {
+   cursor: pointer;
+}
+
+.searchArea input {
+   width: 500px;
+   height: 30px;
+   border: #FFA500 solid 2px;
+   outline: none;
+}
+
+.searchArea input:focus {
+  border-color: #FFA500; /* 포커스 시 테두리 스타일 변경 */
+}
+
+#menuTbl {
+	position: fixed;
+   top: 20%;
+   left: 50%;
+   width: 1200px;
+   transform: translate(-50%, -50%);
+   border: #FFA500 solid 2px;
+   background-color:gold;
+}
+
+#menuTbl a:link,
+#menuTbl a:visited {
+  color:  black; /* 링크의 기본 및 방문한 링크의 글꼴 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   z-index: 1;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.dropdown:hover .dropdown-content {
+   display: block;
+}
+
+.dropdown-content a {
+   padding: 10px;
+   text-decoration: none;
+   display: block;
+   color: black;
+}
+
+#contentPage {
+   position: fixed;
+   width: 1200px;
+   height: 500px;
+   top: 70%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+#sellBtn {
+   position: fixed;
+   bottom: 80px;
+   right: 100px;
+   background-color: #FFA500;
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   border-radius: 5px;
+   width: 50px;
+   height: 50px;
+   cursor: pointer;
+   border-radius: 50%;
+   font-size: x-large;
+}
+
+#sellBtn:hover {
+   background-color: #FF6347;
+}
+
+#result {
+	color:  black;
+	position: fixed;
+	top: 145px;
+	right: 370px;
+	font-family: "n";
+}

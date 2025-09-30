@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<link rel="stylesheet" type="text/css" href="csskwon/profile.css">
+<script>
+function goDetail(n, m){
+	location.href="go.detail?id=" + n +"&category=" + m;
+	
+}
+function goReport(n){
+	location.href="go.report?id=" + n;
+}
+</script>
+</head>
+<body>
+	<table id="profileTbl">
+	<tr>
+		<td th:text="${ppp.id + '님의 프로필'}" align="right"></td>
+	</tr>
+		<tr>
+			<td>
+				<img id="profilePhoto" th:src="${'/photo/' + ppp.photo}">
+			</td>
+			<td th:text="'아이디 : ' +${ppp.id}"></td>
+		</tr>
+		<tr th:if="${profile.id != session.loginMember.id}">
+			<td id="reportBtn" align="center" th:onclick="goReport([[${ppp.id}]])">
+				신고하기
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+		</tr>
+	</table>
+	<table id="sellingTbl">
+	<div id="ment">판매 상품</div>
+    <tr>
+        <td>
+            <a th:href="'go.profile?id=' + ${profile.id}">전체</a>
+			<a th:href="'go.selling?id=' + ${profile.id}">판매중</a>
+			<a th:href="'go.sold?id=' + ${profile.id}">판매완료</a>
+            <div class="product-list">
+                <div th:onclick ="goDetail([[${s.id}]], '[[${s.category}]]');"  th:each="s : ${sellProduct}" class="product-card">
+                  <img th:src="${'/photo/' + s.photo}" alt="사진" class="product-photo">
+                    <div class="product-info" th:data-state="${s.state}">
+                        <h2 th:text="${s.name}"></h2>
+                        <p th:text="${s.price} + '원'"></p>
+                        <p th:text="'조회수 ' + ${s.view}"></p>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+	</table>
+</body>
+</html>

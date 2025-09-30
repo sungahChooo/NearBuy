@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+</head>
+<body>
+   <div id="memberProductdetailDiv">
+      <table id="memberProductdetail" th:each="pd : ${memberProductDetail}">
+            <tr>
+               <td colspan="2" align="center">
+                    <img width="80%" id="detailImg" th:src="${'/photokwon/' + pd.photo}">
+               </td>
+            </tr>
+            <tr id="profileBtn" th:onclick="goProfile([[${pd.memberId}]]);">
+               <td id="profileImg">
+                  <img th:src="${'/photokwon/' + pd.memberId.photo}">
+               </td>
+               <td align="right" th:text="${'판매자 : ' + pd.memberId}"></td>
+            </tr>
+            <tr>
+               <td style="font-size: 20px" th:text="${pd.name}"></td>
+               <td align="right" style="font-size: 13px" th:text="${pd.category}"></td>
+            </tr>
+            <tr>
+               <td th:text="${pd.price} + '원'"></td>
+               <td align="right" th:text=${pd.loc}></td>
+            </tr>
+            <tr>
+               <td style="font-size: 20px" id="detailDesc" th:text="${pd.description}" colspan="2"></td>
+            </tr>
+            <tr>
+               <td style="font-size: 13px" th:text="'조회수 ' + ${pd.view}"></td>
+               <td align="right">
+                  <button th:onclick="deleteProducts([[${pd.id}]], [[${pd.memberId.id}]]);">삭제</button>
+               </td>
+            </tr>
+         </table>
+      </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#loginLogo {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	font-family: 'Cafe24Ssurround';
+	border:  #FFA500 solid 2px;
+	color: #FFA500;
+	width: 500px;
+	height: 100px;
+	margin-bottom: 35px;
+	box-shadow: 3px 3px 2px #FFA500;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+.goMain a {
+  font-size: 30px;
+}
+
+.goMain a:link,
+.goMain a:visited {
+  font-size: 30px;
+  color:  #FFA500;
+  text-decoration: none;
+}
+
+.image-button {
+   cursor: pointer;
+   height: 50px;
+   width: 50px;
+}
+
+#loginTbl {
+	font-family: 'Cafe24Ssurround';
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	height: 400px;
+	border:  #FFA500 solid 2px;
+	padding: 60px;
+}
+
+#loginTbl input {
+	font-family: 'Cafe24Ssurround';
+	width: 300px;
+    height: 30px;
+    border: #FFA500 solid 2px;
+    outline: none;
+    padding: 3px;
+}
+
+#loginTbl input:focus {
+  border-color: #FF6347;
+}
+
+#loginTbl button {
+	font-family: 'Cafe24Ssurround';
+	border: #FFA500 solid 2px;
+    background-color: #FFA500;
+    color: white;
+    width: 300px;
+    height: 40px;
+    padding: 3px;
+    font-size: 19px;
+}
+
+#loginTbl button:hover {
+	cursor: pointer;
+    background-color: #FF6347;
+    border: #FF6347 solid 2px;
+}
+
+#loginTbl a {
+	text-decoration: none;
+	border: #FFA500 solid 2px;
+    background-color: #FFA500;
+    color: white;
+    padding: 3px;
+    width: 80px;
+    height: 20px;
+    font-size: 14px;
+}
+
+#loginTbl a:hover {
+	cursor: pointer;
+    background-color: #FF6347;
+    border: #FF6347 solid 2px;
+}
+
+#joinTbl{
+	font-family: 'Cafe24Ssurround';
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	height: 700px;
+	border:  #FFA500 solid 2px;
+	padding: 50px;
+}
+
+#joinTbl input{
+	font-family: 'Cafe24Ssurround';
+	width: 300px;
+    height: 30px;
+    border: #FFA500 solid 2px;
+    outline: none;
+	padding: 3px;
+}
+
+#joinTbl input:focus{
+	border-color: #FF6347;
+}
+
+.addr{
+	margin: 2.5px;
+}
+
+#joinTbl button{
+	font-family: 'Cafe24Ssurround';
+	border: #FFA500 solid 2px;
+    background-color: #FFA500;
+    color: white;
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#joinTbl button:hover{
+	cursor: pointer;
+    background-color: #FF6347;
+    border: #FF6347 solid 2px;
+}
+
+#memberInfoTbl{
+	font-family: 'Cafe24Ssurround';
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	height: 500px;
+	border:  #FFA500 solid 2px;
+	padding: 50px;
+	margin-bottom: 50px;
+}
+
+#memberInfoTbl th{
+	font-size: 15pt;
+	text-shadow: 2px 2px 2px #FFA500;
+	padding-bottom: 15px;
+}
+
+#memberInfoTbl input{
+	font-family: 'Cafe24Ssurround';
+	width: 300px;
+    height: 30px;
+    border: #FFA500 solid 2px;
+    outline: none;
+	padding: 3px;
+}
+
+#memberInfoTbl input:focus{
+	border-color: #FF6347;
+}
+
+.addr{
+	margin: 2.5px;
+}
+
+#memberInfoTbl img{
+	width: 300px;
+	border: #FFA500 solid 2px;
+	border-radius: 10px;
+}
+
+#memberInfoTbl button{
+	font-family: 'Cafe24Ssurround';
+	border: #FFA500 solid 2px;
+    background-color: #FFA500;
+    color: white;
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#memberInfoTbl button:hover{
+	cursor: pointer;
+    background-color: #FF6347;
+    border: #FF6347 solid 2px;
+}
+
+#loginTbl #loginPw{
+	width: 275px;
+}
+
+#joinTbl #joinPw{
+	width: 275px;
+}
+
+#joinTbl #joinPwChk{
+	width: 275px;
+}
+
+#memberInfoTbl #infoPw{
+	width: 275px;
+}
+
+#memberInfoTbl #infoChkPw{
+	width: 275px;
+}
+
+

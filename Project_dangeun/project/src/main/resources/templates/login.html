@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<script src="https://kit.fontawesome.com/d4f5b29cd3.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/projectCheck.js"></script>
+<script type="text/javascript" src="js/skgusValidChecker.js"></script>
+</head>
+<body>
+	<table id="loginLogo">
+		<tr>
+			<td align="center" class="goMain">
+            	<img alt="" src="image/carrot.png" class="image-button">
+            	<a id="goMain" href="/">당근 마켓</a>
+        	</td>
+		</tr>
+	</table>
+	<form action="member.login" method="post" onsubmit="return loginCheck(this);">
+		<table id="loginTbl">
+			<tr>
+				<td align="center">
+  					<input name="id" maxlength="20" placeholder="id">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="loginPw" name="pw" type="password" maxlength="20" placeholder="pw">
+					<i id="loginIcon" class="fa-solid fa-eye" onclick="loginPasswordVisibility();"></i>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<button>로그인</button>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<a href="member.join.go">회원가입</a>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

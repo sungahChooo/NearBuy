@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+
+@font-face {
+	font-family: 'SUITE-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	background-color: white;
+}
+
+#header {
+	height: 178px;
+	font-family: 'SUITE-Regular';
+	position: fixed;
+	/*margin-top: 40px;*/
+	top: 0;
+	width: 1200px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 500;
+	background-color: white;
+}
+
+#header td {
+	padding: 10px;
+}
+
+#header img {
+	height: 63px;
+	width: 210px;
+}
+
+#header button {
+	border: #C78A5D solid 2px;
+	background-color: #C78A5D;
+	color: white;
+}
+
+#header button:hover {
+	cursor: pointer;
+	background-color: #B3AB93;
+	border: #B3AB93 solid 2px;
+}
+
+.goMain a {
+	font-size: 30px;
+	font-family: 'SUITE-Regular';
+}
+
+.goMain a:link,
+.goMain a:visited {
+	font-size: 30px;
+	color: #C78A5D;
+	text-decoration: none;
+}
+
+.image-button {
+	cursor: pointer;
+	font-family: 'SUITE-Regular';
+}
+
+.searchArea input {
+	font-family: 'SUITE-Regular';
+	width: 500px;
+	height: 30px;
+	border: #684816 solid 2px;
+	outline: none;
+	border-radius: 3px;
+}
+
+.searchArea input:focus {
+	border-color: #684816;
+	
+}
+#searchBtn{
+	height: 30px;
+	border-radius: 3px;
+	font-family: 'SUITE-Regular';
+}
+
+#menuTbl {
+	border: #684816 solid 1px;
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	width: 1200px;
+	transform: translate(-50%, -50%);
+	box-shadow: 5px 5px 5px #B3AB93;
+	background-color: #C78A5D;
+	z-index: 500;
+	color: white;
+}
+
+#menuTbl a:link,
+#menuTbl a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.dropdown {
+	display: inline-block;
+}
+
+.dropdown-content {
+	position: absolute;
+	display: none;
+	background-color:#C78A5D;
+	
+	min-width: 640px;
+	left: 0%;
+}
+
+.dropdown:hover .dropdown-content {
+	border: 1px #684816 solid;
+	display: block;
+}
+
+.dropdown-content button {
+	width: 80px;
+	border: 1px solid #684816;
+	font-size: 10pt;
+	padding: 10px;
+	text-decoration: none;
+	display: block;
+	color: white;
+	background-color: #C78A5D;
+	font-family: 'SUITE-Regular';
+}
+
+.dropdown-content button:hover{
+	background-color: #B3AB93;
+}
+
+#contentPage {
+	width: 1200px;
+	height: 500px;
+	margin-top: 400px;
+	transform: translate(29%, -50%);
+}
+
+#sellBtn {
+	position: fixed;
+	bottom: 80px;
+	right: 100px;
+	background-color: #684816;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+#sellBtn:hover {
+	background-color: #B3AB93;
+}
+
+#buttonTbl a {
+	border: #684816 solid 2px;
+	background-color: #684816;
+	color: white;
+	font-family: 'SUITE-Regular';
+	text-decoration: none;
+}
+
+#buttonTbl a:hover {
+	background-color: #B3AB93;
+}
+
+#goMain a {
+	background-color: transparent;
+}
+

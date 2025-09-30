@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>신고내역</title>
+<script type="text/javascript">
+function getReportDetail(n,rId){
+	location.href="/mystore.report.detail?id="+ n + "&reportId=" + rId;
+}
+</script>
+</head>
+<body>
+<div id="productDivReport">
+     <table id="rTable">
+        <tr class="header-row" align="left">
+            <th>제목</th>
+            <th>신고대상</th>
+            <th>작성일</th>
+            <th>카테고리</th>
+            <th>상세 조회</th>
+        </tr>
+        <tr class="list-row" th:each="r : ${report}">
+            <td class="report-title" th:text="${r.title}"></td>
+            <td th:text="${r.reportedId.id}"></td>
+<!--             <td th:text="${#dates.format(r.date,'yyyy-MM-dd HH:mm:ss')}"></td> -->
+             <td th:text="${r.date}"></td> 
+            
+            <td th:text="${r.category}"></td>
+            <td>
+                <a class="detail-button" th:href="@{/mystore.report.detail(rId=${r.id})}">상세 조회</a>
+            </td>
+        </tr>
+    </table> 
+</div>
+</div>
+</body>
+</html>

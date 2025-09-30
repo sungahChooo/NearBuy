@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓(구매내역)</title>
+<script type="text/javascript">
+function updateProduct(m, p) {
+	location.href = "/mystore.update.go?id="
+}
+
+function removeWishlist(productIdd){
+	location.href="/mystore.wishlist.remove?productId="+productIdd;
+}
+
+function setupHeartToggle(heartButton,productId) {
+	const heartIcon = heartButton.querySelector('.heart-icon');
+	const isHeartActive = localStorage.getItem(`heart_${productId}`) === 'true';
+	
+	// 초기 상태 설정
+    if (isHeartActive) {
+        heartIcon.classList.add('active');
+    } else {
+        heartIcon.classList.remove('active');
+    }
+	
+	heartButton.addEventListener('click', function() {
+		event.stopPropagation();
+		if (heartIcon.classList.contains('active')) {
+			
+			localStorage.setItem(`heart_${productId}`, 'false');
+			heartIcon.classList.remove('active');
+            removeWishlist(productId);
+        } else {
+        	localStorage.setItem(`heart_${productId}`, 'true');
+        	heartIcon.classList.add('active');
+            addWishlist(productId);
+        }
+	});
+}
+function goDetail(n, m){
+	location.href="go.detail?id=" + n +"&category=" + m;
+	
+}
+</script>
+</head>
+<body>
+<div id="productDiv">
+	<table id="saleStateArea" border="1">
+		<tr>
+			<td><a th:href="'mystore.purchase?id=' + ${session.loginMember.id}">구매내역</a></td>
+		</tr>
+	</table>
+	<table id="productTbl" th:each="p:${purchase}"
+		 th:onclick="goDetail([[${p.id}]], '[[${p.product.category}]]');">
+			<tr>
+				<td colspan="2">
+					<div>
+						<img th:src="${'/photoyun/'+p.product.photo}" width="100%" height="200px">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div th:text="${p.product.name}"></div>
+				</td>
+			<tr>
+				<td style="font-weight: bold;" colspan="2">
+					<div th:text="${p.product.price}+'원'"></div>
+				</td>
+			</tr>
+			<tr>
+				<td style="font-size: 7px">
+					<div th:text="${p.product.loc}"></div>
+				</td>
+			</tr>
+ 			<tr>
+				<td style="font-size: 10pt">
+					<div th:text="'판매자: '+${p.product.memberId.id}"></div>
+				</td>
+				<td align="right" style="font-size: 15pt; font-weight: bold;">
+					 <div th:value="${p.product.state}" th:if="${p.product.state == '판매완료'}">구매완료</div>
+				</td>
+			</tr>
+	</table>
+</div>
+	<script>
+	const heartButtons = document.querySelectorAll('.heart-button');
+	heartButtons.forEach(function(heartButton) {
+	    const productId = heartButton.getAttribute('data-product-id');
+	    setupHeartToggle(heartButton, productId);
+	});
+	
+	function getRelativeTime(serverDate) {
+	    // 서버에서 전달한 날짜를 JavaScript Date 객체로 변환
+	    const serverDateTime = new Date(serverDate);
+	    alert(serverDateTime);
+	    // 현재 시간을 가져옵니다.
+	    const currentDate = new Date();
+		alert(currentDate);
+
+	    // 시간 차이를 계산합니다.
+	    const timeDifferenceMillis = currentDate - serverDateTime;
+
+	    // 밀리초를 시간으로 변환합니다.
+	    const timeDifferenceHours = Math.floor(timeDifferenceMillis / (1000 * 60 * 60));
+	    const timeDifferenceDays = Math.floor(timeDifferenceHours / 24);
+
+	    // 결과를 반환합니다.
+	    if (timeDifferenceDays === 0) {
+	        if (timeDifferenceHours === 0) {
+	            return "방금 전";
+	        } else {
+	            return timeDifferenceHours + "시간 전";
+	        }
+	    } else {
+	        return timeDifferenceDays + "일 전";
+	    }
+	}
+
+</script>
+</body>
+</html>

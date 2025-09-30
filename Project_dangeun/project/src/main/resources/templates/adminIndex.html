@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf/org">
+<head>
+<meta charset="UTF-8">
+<title>당근 마켓</title>
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+</head>
+<body>
+	<table id="adminHeader">
+		<tr>
+			<td>
+				<table id="adminLogo">
+					<tr>
+						<td align="center" class="goMain">
+			            	<img alt="" src="image/carrot.png" class="image-button">
+			            	<a id="goMain" href="/">당근 마켓</a>
+			         	</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<a th:text="${session.loginMember.id}" class="adminBtn" href="member.info.go"></a>
+				<a class="adminBtn" href="member.logout">로그아웃</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table id="adminMenu">
+					<tr>
+						<td align="center">
+							<div>회원 관리</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table id="adminContent">
+      <tr>
+         <td align="center" th:insert="~{${adminContentPage}}"></td>
+      </tr>
+   </table>
+</body>
+</html>

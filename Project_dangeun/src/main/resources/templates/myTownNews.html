@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>내 게시물</title>
+</head>
+<body>
+<div id="productDiv">
+<table id="townNewsPage" th:each="t : ${tn}">
+    <!-- 게시글 제목 -->
+    <tr>
+        <td colspan="2">
+			<span class="newsnum" th:text="${t.townNewsNum}" id="num-cell"></span>
+            <span class="title-cell" id="title-cell" th:text="${t.townNewsTitle}"></span>
+        </td>
+        <td colspan="2">
+            <!-- 게시글 작성일 -->
+            <span class="timestamp-cell" th:text="${t.townNewsTimestamp}"></span>
+        </td>
+    </tr>
+    <!-- 게시글 내용과 이미지 -->
+    <tr>
+		<td class="image-cell">
+		    <!-- 디폴트 사진값 -->
+		    <img alt="" th:if="${#strings.isEmpty(t.townNewsPhoto)}"
+		         src="img/rabbit.png" class="resize-image" id="photo-cell">
+		    <!-- 사용자 사진값 -->
+		    <img alt="" th:unless="${not #strings.isEmpty(t.townNewsPhoto)}"
+		         th:src="${'/photokwon/' + t.townNewsPhoto}" class="resize-image" id="photo-cell">
+		</td>
+        <td colspan="3" class="text-cell">
+            <p><span id="text-cell" th:text="${t.townNewsText}"></span></p>
+        </td>
+    </tr>	
+    <!-- 댓글 내용 표시 -->	
+    <tr th:each="tnr : ${townNewsReply}">
+        <td colspan="4" th:if="${tnr.townnews.townNewsNum == t.townNewsNum}">
+			<span th:text="${tnr.townNewsReplyNum}" style="display: none;"></span>
+            <span class="reply-writer-cell" th:text="${tnr.townNewsReplyWriterId}"></span>
+            <span class="reply-text-cell" th:text="${tnr.townNewsReplyText}"></span>
+            <span class="reply-date-cell" th:text="${tnr.townNewsReplyDate}"></span>
+        </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
